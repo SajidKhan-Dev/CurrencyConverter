@@ -7,6 +7,7 @@ import SyncAltIcon from '@mui/icons-material/SyncAlt';
 import { useEffect, useState } from 'react';
 import ConversionResult from '../components/ConversionResult';
 
+
 const Home = () => {
   const [currencyOptions, setCurrencyOptions] = useState([]);
   const [fromCurrency, setFromCurrency] = useState();
@@ -30,7 +31,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          'https://v6.exchangerate-api.com/v6/1c8a9739ed315ace41767ca6/latest/USD'
+          'https://v6.exchangerate-api.com/v6/35c78234902abb869d267eb4/latest/USD'
         );
         console.log('Response status:', response.status);
         if (!response.ok) {
@@ -38,11 +39,10 @@ const Home = () => {
         }
         const data = await response.json();
         console.log('API response:', data);
-        const firstCurrency = Object.keys(data.conversion_rates)[0];
+        
         setCurrencyOptions([data.base_code, ...Object.keys(data.conversion_rates)]);
         setFromCurrency(data.base_code);
-        setToCurrency(firstCurrency);
-        setExchangeRate(data.conversion_rates[firstCurrency]);
+       
       } catch (error) {
         console.error('Error fetching exchange rates:', error);
       }
