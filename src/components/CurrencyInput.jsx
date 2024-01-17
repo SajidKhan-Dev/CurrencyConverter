@@ -7,10 +7,11 @@ const CurrencyInput = (props) => {
 
     // Check if the new value is a valid number
     if (!isNaN(newValue)) {
-      // Ensure the new value is not less than 1
-      newValue = Math.max(newValue, 1);
       // Call the parent component's onChangeAmount with the updated value
       onChangeAmount(newValue);
+    } else {
+      // If the value is not a valid number, set it to an empty string or another default value
+      onChangeAmount('');
     }
   };
 
