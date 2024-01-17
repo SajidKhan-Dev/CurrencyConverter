@@ -6,6 +6,7 @@ import CurrencyDropdown from '../components/CurrencyDropdown';
 import SyncAltIcon from '@mui/icons-material/SyncAlt';
 import { useEffect, useState } from 'react';
 import ConversionResult from '../components/ConversionResult';
+import Navbar from '../components/NavBar';
 
 
 const Home = () => {
@@ -70,9 +71,11 @@ const Home = () => {
 
   return (
     <>
+    
       <div className="bg-cover h-screen" style={{ backgroundImage: `url(${backgroundImage})` }}>
-        <div className="flex justify-center items-center h-screen">
-          <div className="bg-opacity-50 bg-purple-500 backdrop-blur-md rounded-xl p-4 md:w-10/12 lg:w-[56%] ">
+      <Navbar/>
+        <div className="flex justify-center items-center ">
+          <div className="bg-opacity-50 lg:mr-80 lg:mb-28 mt-28 bg-purple-500 backdrop-blur-md rounded-xl p-4 md:w-10/12 lg:w-[56%] ">
             <div className="flex flex-col md:flex-row px-3 py-3 items-center">
               <div className="mb-4">
                 <span className="text-white ml-2">Amount</span>
